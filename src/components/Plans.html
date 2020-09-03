@@ -1,0 +1,77 @@
+<script>
+    import Plan from './Plan.html';
+    let title = '';
+    let description = '';
+    let plans = [
+        {
+            title: 'Go to Mars',
+            description: 'I\'d love to visit Mars once it is safe to visit.'
+        },
+        {
+            title: 'Go to the Gym',
+            description: 'Spend more time working my calves and thighs.'
+        },
+        {
+            title: 'Read a novel',
+            description: 'I have been procastinating on reading some novels. I should read the Native Son and Things fall apart.'
+        }
+    ]
+
+    const addPlan = () => {
+        let newPlan = {
+            title: title,
+            description: description
+        }
+        title = description = '';
+        return plans.push(newPlan)
+    }
+
+</script>
+<main>
+    {#each plans as plan}
+        <Plan title={plan.title} description={plan.description} />
+    {/each}
+
+</main>
+
+
+<div class="box">
+    <h4>Add A New Plan</h4>
+    <input type="text" name="title" :value={title}>
+    <br><br/> 
+    <textarea cols="50" rows="5" :value={description}></textarea>
+    <button @click:addPlan>Add Plan</button>
+</div>
+
+<style>
+    main {
+        padding-top: 55px;
+    }    
+
+    .box {
+        margin: 20px 20px;
+        text-decoration: none;
+        padding: 50px 40px;
+        border-radius: 4px;
+        border: solid 1px rgba(189, 189, 189, 0.747);
+    }
+
+    @media only screen and (min-width: 768px) {  
+        main {
+            display: flex;
+            flex-flow: wrap;
+            justify-content: space-evenly;
+            padding: 8px;
+            padding-top: 100px;  
+        }
+
+    .box {
+        width: 500px;
+        height: 300px;    
+        padding: 25px;
+        border-radius: 4px;
+        border: thin 3px #000;
+        overflow: auto;
+    }
+    }
+</style>

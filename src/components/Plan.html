@@ -1,0 +1,43 @@
+<script>
+    export let title;
+    export let description;
+    let show = false;
+
+    const showDescription = (e) => {
+        console.log("Sighs?", show);
+        show = !show
+        return show
+    }
+</script>
+
+<div class="box">
+    <b>{title}</b>
+    <hr>
+    <p>
+        {show ? description : '' }
+    </p>
+    <button @click:showDescription>{show ? 'Hide' : 'Show'} </button>
+</div>
+
+<style>
+    .box {
+        margin: 20px 20px;
+        text-decoration: none;
+        padding: 50px 40px;
+        border-radius: 4px;
+        border: solid 1px rgba(189, 189, 189, 0.747);
+        text-align: center;
+    }
+
+    @media only screen and (min-width: 780px) {
+        .box {
+            width: 200px;
+            height: 150px;    
+            padding: 25px;
+            border-radius: 4px;
+            border: thin 3px #000;
+            overflow: auto;
+        }
+    }
+
+</style>
